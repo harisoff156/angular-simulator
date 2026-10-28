@@ -1,35 +1,39 @@
 .hero {
+  position: relative;
   display: flex;
-  align-items: flex-end;
-  min-height: 985px;
-  padding: 180px 24px 16px;
-  background: url('/images/hero.png') center / cover;
-  color: #fdfdfd;
+  align-items: center;
+  justify-content: center;
+  min-height: 900px;
+  padding: 360px 24px 100px;
+  background-image: linear-gradient(rgba(21, 34, 43, 0.35), rgba(21, 34, 43, 0.52)),
+    url('/mountains-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  color: #fff;
 }
 
 .hero__content {
-  width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
+  width: min(1180px, 100%);
 }
 
 .hero__title {
-  margin: 0 0 41px;
-  font-size: 50px;
+  margin: 0 0 44px;
+  font-size: clamp(28px, 3vw, 46px);
   font-weight: 400;
-  line-height: 75px;
-  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
   text-transform: uppercase;
 }
 
 .hero__search {
   display: flex;
   align-items: flex-start;
-  gap: 24px;
-  padding: 40px 42px;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
 }
 
 .hero__field {
@@ -43,160 +47,56 @@
 .hero__field select,
 .hero__field input {
   width: 100%;
-  height: 52px;
+  height: 56px;
   padding: 0 16px;
-  border: 1px solid #e1e3e4;
-  border-radius: 8px;
-  background: transparent;
-  color: #fdfdfd;
+  border: 1px solid #d5d9d8;
+  border-radius: 6px;
+  background: #fff;
+  color: #293a3d;
   font: inherit;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.hero__field select option {
-  background: #1a3e3e;
-  color: #fdfdfd;
-}
-
-.hero__field > span {
-  padding-left: 8px;
   font-size: 14px;
-  line-height: 21px;
 }
 
-.hero__date {
-  position: relative;
-}
-
-.hero__date input {
-  color-scheme: dark;
-}
-
-.hero__date input:invalid::-webkit-datetime-edit {
-  color: transparent;
-}
-
-.hero__date-label {
-  position: absolute;
-  top: 50%;
-  left: 16px;
-  transform: translateY(-50%);
-  font-size: 16px;
-  font-weight: 700;
-  pointer-events: none;
-}
-
-.hero__date input:valid + .hero__date-label {
-  display: none;
+.hero__field span {
+  padding-left: 4px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
 }
 
 .hero__search-button {
-  min-height: 52px;
-  padding: 16px 36px;
+  min-height: 56px;
+  padding: 0 26px;
   border: 0;
-  border-radius: 4px;
-  background: #1a3e3e;
-  color: #fdfdfd;
+  border-radius: 6px;
+  background: #1d5148;
+  color: #fff;
   font: inherit;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 20px;
-  white-space: nowrap;
+  font-size: 15px;
   cursor: pointer;
-  transition: background-color 200ms ease, color 200ms ease;
 }
 
-.hero__search-button:hover:not(:disabled) {
-  background: #fdfdfd;
-  color: #1a3e3e;
-}
-
-.hero__search-button:disabled {
-  background: #657676;
-  color: #d9dede;
-  cursor: not-allowed;
-}
-
-.hero__live {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  margin-top: 16px;
-}
-
-.hero__live input {
-  flex-shrink: 0;
-  width: 450px;
-  height: 50px;
-  padding: 0 16px;
-  border: 1px solid #e1e3e4;
-  background: transparent;
-  color: #fdfdfd;
-  font: inherit;
-}
-
-.hero__live-result {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-@media (max-width: 1100px) {
-  .hero__title {
-    font-size: 40px;
-    line-height: 60px;
-  }
-
-  .hero__search {
-    gap: 16px;
-    padding: 28px;
-  }
-
-  .hero__search-button {
-    padding-right: 20px;
-    padding-left: 20px;
-  }
+.hero__search-button:hover {
+  background: #174239;
 }
 
 @media (max-width: 760px) {
   .hero {
-    min-height: 800px;
-    padding: 280px 16px 24px;
+    min-height: 780px;
+    padding: 190px 16px 56px;
   }
 
   .hero__title {
     margin-bottom: 32px;
-    font-size: 28px;
-    line-height: 42px;
-    overflow-wrap: anywhere;
-  }
-
-  .hero__title br {
-    display: none;
+    font-size: clamp(24px, 6vw, 34px);
   }
 
   .hero__search {
     flex-direction: column;
-    padding: 20px;
+    padding: 18px;
   }
 
   .hero__field,
   .hero__search-button {
     width: 100%;
-  }
-
-  .hero__live {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .hero__live input {
-    width: 100%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__search-button {
-    transition: none;
   }
 }
