@@ -7,8 +7,8 @@
 
     <div class="hero__search">
       <label class="hero__field">
-        <select aria-label="Локация для тура">
-          <option value="" selected>Локация для тура</option>
+        <select aria-label="Локация для тура" [(ngModel)]="location" required>
+          <option value="">Локация для тура</option>
           <option value="эльбрус">Эльбрус</option>
           <option value="алтай">Алтай</option>
           <option value="камчатка">Камчатка</option>
@@ -18,13 +18,16 @@
       </label>
 
       <label class="hero__field">
-        <input type="date" aria-label="Дата похода" />
+        <div class="hero__date">
+          <input type="date" aria-label="Дата похода" [(ngModel)]="hikeDate" required />
+          <span class="hero__date-label">Дата похода</span>
+        </div>
         <span>укажите дату</span>
       </label>
 
       <label class="hero__field">
-        <select aria-label="Количество участников">
-          <option value="" selected>Участники</option>
+        <select aria-label="Количество участников" [(ngModel)]="participants" required>
+          <option value="">Участники</option>
           <option value="1-2">1–2 человека</option>
           <option value="3-5">3–5 человек</option>
           <option value="6-10">6–10 человек</option>
@@ -33,7 +36,18 @@
         <span>выберите из списка</span>
       </label>
 
-      <button class="hero__search-button" type="button">Найти программу</button>
+      <button
+        class="hero__search-button"
+        type="button"
+        [disabled]="!location || !hikeDate || !participants"
+      >
+        Найти программу
+      </button>
+    </div>
+
+    <div class="hero__live">
+      <input type="text" aria-label="Live-input" placeholder="Введите текст" [(ngModel)]="liveText" />
+      <span class="hero__live-result">{{ liveText }}</span>
     </div>
   </div>
 </main>

@@ -5,11 +5,11 @@ export class Collection<T> {
     this.items = [...source];
   }
 
-  getAll(): T[] {
+  public getAll(): T[] {
     return [...this.items];
   }
 
-  get(index: number): T | undefined {
+  public get(index: number): T | undefined {
     if (!Number.isInteger(index) || index < 0 || index >= this.items.length) {
       return undefined;
     }
@@ -17,11 +17,11 @@ export class Collection<T> {
     return this.items[index];
   }
 
-  clear(): void {
+  public clear(): void {
     this.items = [];
   }
 
-  remove(index: number): boolean {
+  public remove(index: number): boolean {
     if (!Number.isInteger(index) || index < 0 || index >= this.items.length) {
       return false;
     }
@@ -30,7 +30,7 @@ export class Collection<T> {
     return true;
   }
 
-  replace(index: number, item: T): boolean {
+  public replace(index: number, item: T): boolean {
     if (!Number.isInteger(index) || index < 0 || index >= this.items.length) {
       return false;
     }
