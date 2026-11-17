@@ -35,35 +35,13 @@ h2 {
   border-radius: 32px;
   aspect-ratio: 380 / 500;
   color: #fdfdfd;
-  background: #1a3e3e;
+  background: #1a3e3e center bottom / 100% auto no-repeat;
 }
 
 .destination__image {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.destination__rating {
-  position: absolute;
-  top: 50px;
-  right: 0;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 8px;
-  border-radius: 4px 0 0 4px;
-  background: #fdfdfd66;
-  color: #1a3e3e;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.destination__rating span {
-  color: #f2be22;
-  font-size: 24px;
-  line-height: 1;
+  height: auto;
 }
 
 .destination__details {
@@ -105,7 +83,7 @@ h3 {
 
 .destinations__footer {
   margin-top: 24px;
-  padding: 26px 16px 80px;
+  padding: 26px 16px 100px;
   text-align: center;
   background: #f3f5f4;
 }
@@ -118,6 +96,7 @@ button {
   color: #fdfdfd;
   font: inherit;
   font-weight: 600;
+  line-height: 18px;
   cursor: pointer;
 }
 

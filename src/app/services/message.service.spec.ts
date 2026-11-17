@@ -1,5 +1,4 @@
 import { MessageService } from './message.service';
-import { MessageType } from '../models/message';
 
 describe('MessageService', () => {
   let service: MessageService;
@@ -7,9 +6,9 @@ describe('MessageService', () => {
   afterEach(() => { service.ngOnDestroy(); vi.useRealTimers(); });
 
   it('adds unique messages newest first and removes each after five seconds', () => {
-    service.addMessage('first', MessageType.Info);
+    service.showInfo('first');
     vi.advanceTimersByTime(1000);
-    service.addMessage('second', MessageType.Success);
+    service.showSuccess('second');
     expect(service.messages.map((message) => message.text)).toEqual(['second', 'first']);
     expect(new Set(service.messages.map((message) => message.id)).size).toBe(2);
     vi.advanceTimersByTime(4000);
@@ -19,7 +18,7 @@ describe('MessageService', () => {
   });
 
   it('closes a message immediately and cancels its timer', () => {
-    service.addMessage('close me', MessageType.Warning);
+    service.showWarn('close me');
     service.closeMessage(service.messages[0].id);
     expect(service.messages).toEqual([]);
     expect(vi.getTimerCount()).toBe(0);
