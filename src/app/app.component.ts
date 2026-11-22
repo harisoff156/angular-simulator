@@ -1,40 +1,32 @@
 import './training';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component } from '@angular/core';
 import { StorageService } from './services/storage.service';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MessageComponent } from './message/message.component';
+import { LoaderComponent } from './loader/loader.component';
+import { LoaderService } from './services/loader.service';
 import { Color } from '../enums/Color';
 import { Collection } from '../collection';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, FooterComponent, MessageComponent, RouterOutlet],
+  imports: [AsyncPipe, HeaderComponent, FooterComponent, MessageComponent, LoaderComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent {
   public readonly numberCollection = new Collection<number>([10, 20, 30]);
   public readonly colorCollection = new Collection<Color>([Color.Red, Color.Green, Color.Blue]);
 
-  protected isLoading = true;
-
-  private loadingTimeoutId: number | undefined;
-
-  constructor(private readonly storage: StorageService) {
+  constructor(
+    private readonly storage: StorageService,
+    protected readonly loaderService: LoaderService,
+  ) {
     this.saveLastVisitDate();
     this.saveVisitCount();
-  }
-
-  public ngOnInit(): void {
-    this.loadingTimeoutId = window.setTimeout(() => {
-      this.isLoading = false;
-    }, 2000);
-  }
-
-  public ngOnDestroy(): void {
-    window.clearTimeout(this.loadingTimeoutId);
   }
 
   public isPrimaryColor(color: Color): boolean {

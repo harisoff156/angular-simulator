@@ -48,6 +48,11 @@ body {
   color: #18121e;
 }
 
+html:has(app-loader .loader-overlay),
+body:has(app-loader .loader-overlay) {
+  overflow: hidden;
+}
+
 app-root:has(app-home-page) > app-header {
   position: absolute;
   inset: 0 0 auto;
