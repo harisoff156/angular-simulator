@@ -1,5 +1,5 @@
 <div class="messages" aria-live="polite" aria-relevant="additions">
-  @for (message of messageService.messages; track message.id) {
+  @for (message of messageService.messages$ | async; track message.id) {
     <div class="message" [class]="'message--' + message.type">
       <span class="message__text">{{ message.text }}</span>
       <button

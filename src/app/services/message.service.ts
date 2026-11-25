@@ -1,14 +1,17 @@
 import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Message, MessageType } from '../models/message';
 
 @Injectable({ providedIn: 'root' })
 export class MessageService implements OnDestroy {
-  private messageList: Message[] = [];
+  private readonly messagesSubject = new BehaviorSubject<readonly Message[]>([]);
+  public readonly messages$ = this.messagesSubject.asObservable();
+
   private timers = new Map<number, ReturnType<typeof setTimeout>>();
   private nextId = 0;
 
   public get messages(): readonly Message[] {
-    return this.messageList;
+    return this.messagesSubject.value;
   }
 
   public showWarn(text: string): void {
@@ -33,7 +36,8 @@ export class MessageService implements OnDestroy {
       clearTimeout(timer);
       this.timers.delete(id);
     }
-    this.messageList = this.messageList.filter((message) => message.id !== id);
+    const messages = this.messagesSubject.value.filter((message) => message.id !== id);
+    this.messagesSubject.next(messages);
   }
 
   public ngOnDestroy(): void {
@@ -43,9 +47,8 @@ export class MessageService implements OnDestroy {
 
   private addMessage(text: string, type: MessageType): void {
     const message: Message = { id: ++this.nextId, text, type };
-    this.messageList.unshift(message);
-
     const timer = setTimeout(() => this.closeMessage(message.id), 5000);
     this.timers.set(message.id, timer);
+    this.messagesSubject.next([message, ...this.messagesSubject.value]);
   }
 }

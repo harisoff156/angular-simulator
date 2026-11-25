@@ -1,0 +1,6 @@
+@if (loaderService.isLoading$ | async) {
+  <div class="loader-overlay" role="status">
+    <div class="loader-spinner" aria-hidden="true"></div>
+    <span class="loader-label">Загрузка…</span>
+  </div>
+}

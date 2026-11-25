@@ -1,17 +1,64 @@
-<section class="content-page">
-  <h1>Пользователи</h1>
-  <ul>
-    @for (user of users; track user.id) {
-      <li>{{ user.name }}</li>
-    }
-  </ul>
-  <section class="message-demo" aria-labelledby="message-demo-title">
-    <h2 id="message-demo-title">Уведомления</h2>
-    <div class="message-demo__buttons">
-      <button class="site-button" type="button" (click)="messageService.showSuccess('Действие выполнено успешно')">Успех</button>
-      <button class="site-button" type="button" (click)="messageService.showInfo('Открыт список пользователей')">Информация</button>
-      <button class="site-button" type="button" (click)="messageService.showWarn('Обратите внимание')">Предупреждение</button>
-      <button class="site-button" type="button" (click)="messageService.showError('Произошла ошибка')">Ошибка</button>
+<section class="users-page" aria-labelledby="users-title">
+  <h1 id="users-title">Список Пользователей</h1>
+
+  <div class="users-page__scroll" role="region" aria-labelledby="users-title" tabindex="0">
+    <div class="users-page__content">
+      @if (users$ | async; as users) {
+        @if (users.length) {
+          <ul class="user-cards" role="list">
+            @for (user of users; track user.id) {
+              <li class="user-card">
+                <header class="user-card__header">
+                  <div>
+                    <h2>{{ user.name }}</h2>
+                    <p class="user-card__username">&#64;{{ user.username }}</p>
+                  </div>
+                  <span class="user-card__id">№{{ user.id }}</span>
+                </header>
+
+                <h3>Контакты</h3>
+                <dl class="user-card__details">
+                  <dt>Эл. почта:</dt>
+                  <dd><a [href]="'mailto:' + user.email">{{ user.email }}</a></dd>
+                  <dt>Телефон:</dt>
+                  <dd>{{ user.phone }}</dd>
+                  <dt>Веб-сайт:</dt>
+                  <dd><a [href]="'https://' + user.website">{{ user.website }}</a></dd>
+                </dl>
+
+                <h3>Адрес проживания</h3>
+                <dl class="user-card__details">
+                  <dt>Город:</dt>
+                  <dd>{{ user.address.city }}</dd>
+                  <dt>Улица:</dt>
+                  <dd>{{ user.address.street }}</dd>
+                  <dt>Офис:</dt>
+                  <dd>{{ user.address.suite }}</dd>
+                  <dt>Индекс:</dt>
+                  <dd>{{ user.address.zipcode }}</dd>
+                  <dt>Координаты:</dt>
+                  <dd class="user-card__coordinates">
+                    <span aria-label="Широта {{ user.address.geo.lat }}">{{ user.address.geo.lat }}</span>
+                    <span aria-label="Долгота {{ user.address.geo.lng }}">{{ user.address.geo.lng }}</span>
+                  </dd>
+                </dl>
+
+                <h3>Место работы</h3>
+                <dl class="user-card__details">
+                  <dt>Компания:</dt>
+                  <dd>{{ user.company.name }}</dd>
+                  <dt>Миссия:</dt>
+                  <dd class="user-card__mission">{{ user.company.catchPhrase }}</dd>
+                  <dt>Специализация:</dt>
+                  <dd>{{ user.company.bs }}</dd>
+                </dl>
+              </li>
+            }
+          </ul>
+        } @else if (hasLoaded()) {
+          <p class="users-page__empty" role="status">Нет пользователей для отображения</p>
+        }
+      }
     </div>
-  </section>
+  </div>
 </section>

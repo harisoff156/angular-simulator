@@ -1,17 +1,27 @@
-import { Component } from '@angular/core';
-import { MessageService } from '../services/message.service';
+import { AsyncPipe } from '@angular/common';
+import { afterNextRender, Component, DestroyRef, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Observable } from 'rxjs';
+import { User } from '../models/user';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-users-page',
+  imports: [AsyncPipe],
   templateUrl: './users-page.component.html',
   styleUrl: './users-page.component.scss',
 })
 export class UsersPageComponent {
-  protected readonly users = [
-    { id: 1, name: 'Алексей' },
-    { id: 2, name: 'Мария' },
-    { id: 3, name: 'Иван' },
-  ];
+  protected readonly users$: Observable<User[]>;
+  protected readonly hasLoaded = signal(false);
 
-  constructor(protected readonly messageService: MessageService) {}
+  constructor(userService: UserService, destroyRef: DestroyRef) {
+    this.users$ = userService.getUsers();
+
+    afterNextRender(() => {
+      userService.loadUsers().pipe(takeUntilDestroyed(destroyRef)).subscribe(() => {
+        this.hasLoaded.set(true);
+      });
+    });
+  }
 }
