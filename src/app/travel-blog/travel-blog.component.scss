@@ -1,5 +1,5 @@
 .blog {
-  background: #f3f5f4;
+  background: var(--p-content-hover-background);
   padding-top: 76px;
 }
 
@@ -36,7 +36,7 @@ h2 {
   gap: 24px;
   padding: 16px;
   border-radius: 10px;
-  background: #fdfdfd;
+  background: var(--p-content-background);
 }
 
 .article:hover,
@@ -80,7 +80,7 @@ h3 {
 
 .article:hover .article__title,
 .article__title:focus-visible {
-  color: #1a3e3e;
+  color: var(--p-primary-emphasis-color);
   text-decoration: underline;
 }
 
@@ -108,7 +108,7 @@ time {
   padding: 0;
   border: 0;
   background: transparent;
-  color: #1a3e3e;
+  color: var(--p-primary-emphasis-color);
   font: inherit;
   cursor: pointer;
 }
@@ -118,17 +118,17 @@ time {
 }
 
 .blog__footer {
-  background: #fff;
+  background: var(--p-content-background);
   padding: 26px 16px 0;
   text-align: center;
 }
 
 .blog__button {
   padding: 16px 36px;
-  border: 1px solid #1a3e3e;
+  border: 1px solid var(--p-primary-color);
   border-radius: 4px;
-  background: #1a3e3e;
-  color: #fdfdfd;
+  background: var(--p-primary-color);
+  color: var(--p-primary-contrast-color);
   font: inherit;
   font-weight: 600;
   line-height: 18px;
@@ -136,8 +136,8 @@ time {
 }
 
 .blog__button:hover {
-  background: #fdfdfd;
-  color: #1a3e3e;
+  background: var(--p-content-background);
+  color: var(--p-primary-emphasis-color);
 }
 
 @media (max-width: 1228px) {

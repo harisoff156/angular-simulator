@@ -8,7 +8,7 @@
   margin: 0 auto;
   padding: 40px clamp(24px, 5vw, 100px);
   border-radius: 6px;
-  background: #fdfdfd;
+  background: var(--p-content-background);
   box-shadow: 0 0 15px #18121e1a;
 }
 
@@ -43,7 +43,7 @@
   padding: 11px 16px;
   border: 1px solid transparent;
   border-radius: 4px;
-  background: #f3f5f4;
+  background: var(--p-content-hover-background);
   color: inherit;
   font: inherit;
   font-size: 14px;
@@ -75,8 +75,8 @@
 .footer-main {
   margin-top: -100px;
   padding: 176px 24px 80px;
-  background: #1a3e3e;
-  color: #fdfdfd;
+  background: var(--p-primary-color);
+  color: var(--p-primary-contrast-color);
 }
 
 .footer-main__inner,
@@ -131,7 +131,7 @@
 }
 
 .footer-company__socials a {
-  color: #fdfdfd;
+  color: var(--p-primary-contrast-color);
   font-size: 28px;
 }
 

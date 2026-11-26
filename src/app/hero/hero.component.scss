@@ -55,8 +55,8 @@
 }
 
 .hero__field select option {
-  background: #1a3e3e;
-  color: #fdfdfd;
+  background: var(--p-primary-color);
+  color: var(--p-primary-contrast-color);
 }
 
 .hero__field > span {
@@ -96,8 +96,8 @@
   padding: 16px 36px;
   border: 0;
   border-radius: 4px;
-  background: #1a3e3e;
-  color: #fdfdfd;
+  background: var(--p-primary-color);
+  color: var(--p-primary-contrast-color);
   font: inherit;
   font-size: 16px;
   font-weight: 700;
@@ -108,8 +108,8 @@
 }
 
 .hero__search-button:hover:not(:disabled) {
-  background: #fdfdfd;
-  color: #1a3e3e;
+  background: var(--p-content-background);
+  color: var(--p-primary-emphasis-color);
 }
 
 .hero__search-button:disabled {

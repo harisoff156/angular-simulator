@@ -21,8 +21,10 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs';
       width: min(100%, 320px);
       margin-top: 4px;
       padding: 8px 12px;
-      border: 1px solid #526e70;
+      border: 1px solid var(--p-primary-color);
       border-radius: 4px;
+      background: var(--p-content-background);
+      color: var(--p-text-color);
       font: inherit;
     }
   `,

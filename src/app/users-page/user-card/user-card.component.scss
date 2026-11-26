@@ -3,7 +3,7 @@
   padding: clamp(16px, 2vw, 32px);
   border-top: 3px solid #d9a46d;
   border-radius: 4px;
-  background: #fff;
+  background: var(--p-content-background);
   box-shadow: 0 8px 22px rgb(31 53 51 / 7%);
   overflow-wrap: anywhere;
 }
@@ -29,7 +29,7 @@ h2 {
 }
 
 .user-card__id {
-  color: #526e70;
+  color: var(--p-text-muted-color);
   font-size: 12px;
   white-space: nowrap;
 }
@@ -48,7 +48,7 @@ h3 {
 h3::after {
   flex: 1;
   height: 1px;
-  background: #dce5eb;
+  background: var(--p-content-border-color);
   content: '';
 }
 
@@ -62,7 +62,7 @@ h3::after {
 }
 
 .user-card__details dt {
-  color: #526e70;
+  color: var(--p-text-muted-color);
 }
 
 .user-card__details dd {
@@ -90,14 +90,14 @@ h3::after {
 
 .user-card__coordinates span {
   padding: 1px 5px;
-  border: 1px solid #dce5eb;
+  border: 1px solid var(--p-content-border-color);
   border-radius: 4px;
-  background: #f1f4f3;
+  background: var(--p-content-hover-background);
   font-size: 0.8rem;
 }
 
 .user-card__details .user-card__mission {
-  color: #526e70;
+  color: var(--p-text-muted-color);
   font-style: italic;
 }
 
@@ -106,7 +106,7 @@ button {
   padding: 8px 12px;
   border: 1px solid #aa5151;
   border-radius: 4px;
-  background: #fff;
+  background: var(--p-content-background);
   color: #813a3a;
   font: inherit;
   cursor: pointer;

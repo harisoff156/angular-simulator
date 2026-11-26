@@ -3,8 +3,8 @@
   grid-template-rows: auto minmax(0, 1fr);
   height: 100vh;
   height: 100dvh;
-  background: #f1f3f2;
-  color: #1b3637;
+  background: var(--p-content-hover-background);
+  color: var(--p-text-color);
 }
 
 .users-page h1 {
