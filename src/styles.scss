@@ -83,3 +83,18 @@ app-root:has(app-home-page) > app-header {
 .site-button:hover {
   background: #285858;
 }
+
+/* Тёмный режим: инвертируем цвета страницы, а фото и героя возвращаем как есть. */
+html.app-dark {
+  background: #18121e;
+}
+
+html.app-dark main,
+html.app-dark app-footer {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.app-dark main img,
+html.app-dark app-hero {
+  filter: invert(1) hue-rotate(180deg);
+}

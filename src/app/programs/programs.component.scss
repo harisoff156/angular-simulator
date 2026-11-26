@@ -51,8 +51,12 @@
   transform: translateX(6px);
 }
 
-.programs__advantage img {
+.programs__icon {
   flex-shrink: 0;
+  width: 50px;
+  color: #1a3e3e;
+  font-size: 40px;
+  text-align: center;
 }
 
 .programs__advantage h3 {

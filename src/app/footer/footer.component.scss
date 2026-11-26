@@ -130,11 +130,12 @@
   gap: 18px;
 }
 
-.footer-company__socials img {
-  display: block;
+.footer-company__socials a {
+  color: #fdfdfd;
+  font-size: 28px;
 }
 
-.footer-company__socials a:hover img {
+.footer-company__socials a:hover {
   opacity: 0.8;
 }
 

@@ -71,6 +71,33 @@
   white-space: nowrap;
 }
 
+.navbar__settings {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-top: 8px;
+  color: #fdfdfd;
+}
+
+.navbar__mode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar__visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .navbar__widgets {
   display: flex;
   align-items: center;

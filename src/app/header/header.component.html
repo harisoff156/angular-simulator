@@ -21,6 +21,29 @@
     <a class="navbar__button" href="#contacts">Консультация</a>
   </nav>
 
+  <div class="navbar__settings">
+    <p-selectbutton
+      [options]="themeOptions"
+      [ngModel]="theme$ | async"
+      (ngModelChange)="changeTheme($event)"
+      optionLabel="label"
+      optionValue="value"
+      size="small"
+      ariaLabelledBy="theme-label"
+    />
+    <span id="theme-label" class="navbar__visually-hidden">Тема оформления</span>
+
+    <div class="navbar__mode">
+      <fa-icon [icon]="['fas', 'sun']" />
+      <p-toggleswitch
+        [ngModel]="isDark$ | async"
+        (ngModelChange)="changeMode($event)"
+        ariaLabel="Тёмный режим"
+      />
+      <fa-icon [icon]="['fas', 'moon']" />
+    </div>
+  </div>
+
   <div class="navbar__widgets">
     <div class="navbar__widget">
       @if (isTimerVisible) {
