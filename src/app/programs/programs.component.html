@@ -11,7 +11,7 @@
       <ul class="programs__advantages">
         @for (advantage of advantages; track advantage.id) {
           <li class="programs__advantage">
-            <img [src]="advantage.icon" alt="" width="50" height="50" />
+            <fa-icon class="programs__icon" [icon]="['fas', advantage.icon]" />
             <div>
               <h3>{{ advantage.title }}</h3>
               <p>{{ advantage.description }}</p>

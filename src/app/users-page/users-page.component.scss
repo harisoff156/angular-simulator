@@ -3,8 +3,8 @@
   grid-template-rows: auto minmax(0, 1fr);
   height: 100vh;
   height: 100dvh;
-  background: #f1f3f2;
-  color: #1b3637;
+  background: var(--p-content-hover-background);
+  color: var(--p-text-color);
 }
 
 .users-page h1 {
@@ -36,108 +36,6 @@
   list-style: none;
 }
 
-.user-card {
-  padding: clamp(16px, 2vw, 32px);
-  border-top: 3px solid #d9a46d;
-  border-radius: 4px;
-  background: #fff;
-  box-shadow: 0 8px 22px rgb(31 53 51 / 7%);
-  overflow-wrap: anywhere;
-}
-
-.user-card__header {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 32px;
-}
-
-.user-card h2 {
-  margin: 0;
-  font-size: clamp(19px, 2vw, 30px);
-  font-weight: 800;
-  line-height: 1.15;
-}
-
-.user-card__username {
-  margin: 4px 0 0;
-  color: #9a5423;
-  font-weight: 700;
-}
-
-.user-card__id {
-  color: #526e70;
-  font-size: 12px;
-  white-space: nowrap;
-}
-
-.user-card h3 {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 26px 0 12px;
-  font-size: 0.84rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.user-card h3::after {
-  flex: 1;
-  height: 1px;
-  background: #dce5eb;
-  content: '';
-}
-
-.user-card__details {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 9px 10px;
-  margin: 0;
-  font-size: 0.9375rem;
-  line-height: 1.35;
-}
-
-.user-card__details dt {
-  color: #526e70;
-}
-
-.user-card__details dd {
-  margin: 0;
-  font-weight: 700;
-  text-align: right;
-}
-
-.user-card__details a {
-  color: #9a5423;
-  text-decoration: none;
-}
-
-.user-card__details a:hover,
-.user-card__details a:focus-visible {
-  text-decoration: underline;
-}
-
-.user-card__coordinates {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 4px;
-}
-
-.user-card__coordinates span {
-  padding: 1px 5px;
-  border: 1px solid #dce5eb;
-  border-radius: 4px;
-  background: #f1f4f3;
-  font-size: 0.8rem;
-}
-
-.user-card__details .user-card__mission {
-  color: #526e70;
-  font-style: italic;
-}
-
 .users-page__empty {
   width: fit-content;
   margin: 0;
@@ -162,4 +60,10 @@
   .user-cards {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+app-user-create,
+app-users-filter {
+  display: block;
+  margin-bottom: 24px;
 }

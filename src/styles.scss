@@ -45,7 +45,8 @@ body {
 }
 
 body {
-  color: #18121e;
+  background: var(--p-content-background);
+  color: var(--p-text-color);
 }
 
 html:has(app-loader .loader-overlay),
@@ -70,10 +71,10 @@ app-root:has(app-home-page) > app-header {
 .site-button {
   display: inline-block;
   padding: 14px 24px;
-  border: 1px solid #1a3e3e;
+  border: 1px solid var(--p-primary-color);
   border-radius: 4px;
-  background: #1a3e3e;
-  color: #fdfdfd;
+  background: var(--p-primary-color);
+  color: var(--p-primary-contrast-color);
   font: inherit;
   font-weight: 600;
   text-decoration: none;
@@ -81,5 +82,5 @@ app-root:has(app-home-page) > app-header {
 }
 
 .site-button:hover {
-  background: #285858;
+  background: var(--p-primary-hover-color);
 }

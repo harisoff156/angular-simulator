@@ -1,0 +1,77 @@
+<form [formGroup]="userForm" (ngSubmit)="createUser()">
+  <h2>Создать пользователя</h2>
+  <div class="user-form__groups">
+    <fieldset>
+      <legend>Личные данные и контакты</legend>
+      <div>
+        <label for="create-user-name">Имя</label>
+        <input id="create-user-name" type="text" formControlName="name" maxlength="80" autocomplete="name" />
+      </div>
+      <div>
+        <label for="create-user-username">Имя пользователя</label>
+        <input id="create-user-username" type="text" formControlName="username" maxlength="40" autocomplete="username" />
+      </div>
+      <div>
+        <label for="create-user-email">Эл. почта</label>
+        <input id="create-user-email" type="email" formControlName="email" maxlength="254" autocomplete="email" />
+      </div>
+      <div>
+        <label for="create-user-phone">Телефон</label>
+        <input id="create-user-phone" type="tel" formControlName="phone" maxlength="30" autocomplete="tel" />
+      </div>
+      <div>
+        <label for="create-user-website">Веб-сайт</label>
+        <input id="create-user-website" type="text" formControlName="website" maxlength="200" autocomplete="url" />
+      </div>
+    </fieldset>
+    <fieldset formGroupName="address">
+      <legend>Адрес проживания</legend>
+      <div>
+        <label for="create-user-address-city">Город</label>
+        <input id="create-user-address-city" type="text" formControlName="city" maxlength="80" autocomplete="address-level2" />
+      </div>
+      <div>
+        <label for="create-user-address-street">Улица</label>
+        <input id="create-user-address-street" type="text" formControlName="street" maxlength="100" autocomplete="address-line1" />
+      </div>
+      <div>
+        <label for="create-user-address-suite">Офис</label>
+        <input id="create-user-address-suite" type="text" formControlName="suite" maxlength="40" autocomplete="address-line2" />
+      </div>
+      <div>
+        <label for="create-user-address-zipcode">Индекс</label>
+        <input id="create-user-address-zipcode" type="text" formControlName="zipcode" maxlength="20" autocomplete="postal-code" />
+      </div>
+      <div class="user-form__coordinates" formGroupName="geo">
+        <div>
+          <label for="create-user-latitude">Широта</label>
+          <input id="create-user-latitude" type="number" step="any" formControlName="lat" aria-describedby="create-user-geo-hint" />
+        </div>
+        <div>
+          <label for="create-user-longitude">Долгота</label>
+          <input id="create-user-longitude" type="number" step="any" formControlName="lng" aria-describedby="create-user-geo-hint" />
+        </div>
+        <small id="create-user-geo-hint">Широта от −90 до 90, долгота от −180 до 180.</small>
+      </div>
+    </fieldset>
+    <fieldset formGroupName="company">
+      <legend>Место работы</legend>
+      <div>
+        <label for="create-user-company-name">Компания</label>
+        <input id="create-user-company-name" type="text" formControlName="name" maxlength="100" autocomplete="organization" />
+      </div>
+      <div>
+        <label for="create-user-company-catch-phrase">Миссия</label>
+        <input id="create-user-company-catch-phrase" type="text" formControlName="catchPhrase" maxlength="160" />
+      </div>
+      <div>
+        <label for="create-user-company-bs">Специализация</label>
+        <input id="create-user-company-bs" type="text" formControlName="bs" maxlength="160" />
+      </div>
+    </fieldset>
+  </div>
+  @if (userForm.invalid && (userForm.dirty || userForm.touched)) {
+    <p class="user-form__error" role="status">Проверьте выделенные поля.</p>
+  }
+  <button id="create-user-submit" type="submit">Создать пользователя</button>
+</form>

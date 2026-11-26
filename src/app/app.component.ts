@@ -10,6 +10,11 @@ import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './services/loader.service';
 import { Color } from '../enums/Color';
 import { Collection } from '../collection';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +29,11 @@ export class AppComponent {
   constructor(
     private readonly storage: StorageService,
     protected readonly loaderService: LoaderService,
+    iconLibrary: FaIconLibrary,
+    // Создаём сервис при старте, чтобы сохранённая тема применилась сразу.
+    private readonly themeService: ThemeService,
   ) {
+    iconLibrary.addIconPacks(fas, far, fab);
     this.saveLastVisitDate();
     this.saveVisitCount();
   }

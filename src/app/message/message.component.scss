@@ -15,8 +15,8 @@
   padding: 16px 18px;
   border-left: 4px solid;
   border-radius: 6px;
-  background: #fff;
-  color: #222;
+  background: var(--p-content-background);
+  color: var(--p-text-color);
   box-shadow: 0 4px 18px #0002;
   pointer-events: auto;
   animation: message-enter 180ms ease-out;

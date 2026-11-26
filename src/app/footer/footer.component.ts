@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-footer',
-  imports: [RouterLink],
+  imports: [RouterLink, FaIconComponent],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })

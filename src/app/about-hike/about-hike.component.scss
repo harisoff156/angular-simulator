@@ -1,6 +1,6 @@
 .about {
   padding: 100px 24px;
-  background: #fff;
+  background: var(--p-content-background);
 }
 
 .about__inner {
@@ -43,6 +43,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #fdfdfd;
+  font-size: 56px;
 }
 
 .about__eyebrow {
@@ -69,10 +71,10 @@
   display: inline-block;
   vertical-align: top;
   padding: 16px 36px;
-  box-shadow: inset 0 0 0 1px #1a3e3e;
+  box-shadow: inset 0 0 0 1px var(--p-primary-color);
   border-radius: 4px;
-  background: #1a3e3e;
-  color: #fdfdfd;
+  background: var(--p-primary-color);
+  color: var(--p-primary-contrast-color);
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
@@ -82,8 +84,8 @@
 }
 
 .about__button:hover {
-  background: #fff;
-  color: #1a3e3e;
+  background: var(--p-content-background);
+  color: var(--p-primary-emphasis-color);
 }
 
 @media (max-width: 1100px) {
